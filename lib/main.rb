@@ -4,7 +4,7 @@ require_relative 'calculator/product'
 require_relative 'calculator/product_type_validator'
 
 # Example Usage
-receipt = Calculator::Receipt.new
+receipt = Calculator::Receipt.new(Calculator::TaxCalculator.new)
 
 products = [
   [Calculator::Product.new(name: "book", base_price: 12.49, type: :book, imported: false),2],
@@ -16,7 +16,7 @@ products.each { |product, quantity| receipt.add_product(product, quantity: quant
 puts Calculator::ReceiptFormatter.format(receipt)
 
 # Example Usage
-receipt = Calculator::Receipt.new
+receipt = Calculator::Receipt.new(Calculator::TaxCalculator.new)
 
 products = [
   [Calculator::Product.new(name: "chocolate", base_price: 10.00, type: :food, imported: true),1],
@@ -25,8 +25,8 @@ products = [
 products.each { |product, quantity| receipt.add_product(product, quantity: quantity) }
 puts Calculator::ReceiptFormatter.format(receipt)
 
-# Example Usage 
-receipt = Calculator::Receipt.new
+# Example Usage
+receipt = Calculator::Receipt.new(Calculator::TaxCalculator.new)
 
 products = [
   [Calculator::Product.new(name: "perfume", base_price: 27.99, type: :other, imported: true),1],

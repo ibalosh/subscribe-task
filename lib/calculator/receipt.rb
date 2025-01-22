@@ -1,7 +1,12 @@
+require_relative 'tax_calculator'
+
 module Calculator
   class Receipt
-    def initialize
+    private attr_reader :tax_calculator
+
+    def initialize(tax_calculator)
       @products = []
+      @tax_calculator = tax_calculator
     end
 
     # @param product [Product] The product to add to the receipt
@@ -18,7 +23,7 @@ module Calculator
       @products.each do |item|
         product = item[:product]
         quantity = item[:quantity]
-        tax_calculator = Calculator::TaxCalculator.new
+
 
         item_tax = tax_calculator.calculate(product) * quantity
         item_total = (product.base_price + tax_calculator.calculate(product)) * quantity
