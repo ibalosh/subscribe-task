@@ -1,4 +1,4 @@
-RSpec.describe Calculator::ReceiptFormatter do
+RSpec.describe Calculator::Receipt::Formatter do
   it "formats a receipt into a string" do
     receipt = Calculator::Receipt.new(Calculator::TaxCalculator.new)
     product1 = Calculator::Product.new(name: "BOOK NAME", base_price: 12.49, type: :book, imported: false)

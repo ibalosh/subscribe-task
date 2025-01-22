@@ -1,8 +1,8 @@
-require_relative 'calculator/product'
-require_relative 'calculator/tax_calculator'
-require_relative 'calculator/product_type_validator'
-require_relative 'calculator/receipt'
-require_relative 'calculator/receipt_formatter'
+require_relative 'product.rb'
+require_relative 'tax_calculator'
+require_relative 'product/type_validator'
+require_relative 'receipt'
+require_relative 'receipt/formatter'
 require_relative 'input_parser'
 
 module Calculator
@@ -38,10 +38,3 @@ module Calculator
     end
   end
 end
-
-# Example Usage
-receipt = Calculator::Receipt.new(Calculator::TaxCalculator.new)
-input_handler = Calculator::InputHandler.new(receipt)
-input_handler.start
-
-puts Calculator::ReceiptFormatter.format(receipt)

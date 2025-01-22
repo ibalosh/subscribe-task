@@ -36,7 +36,7 @@ module Calculator
     # @param product [Product] The product to check
     # @return [Boolean] Whether the product type is exempt from tax
     def exempt?(product)
-      ProductTypeValidator.exempt?(product.type)
+      Product::TypeValidator.exempt?(product.type)
     end
 
     # @param value [Float] The value to round up
