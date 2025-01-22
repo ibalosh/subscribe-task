@@ -11,6 +11,7 @@ module Calculator
     end
 
     # @param product [Product] The product to add to the receipt
+    # @param [Integer] quantity
     def add_product(product, quantity: 1)
       @products << { product: product, quantity: quantity }
     end
@@ -19,12 +20,10 @@ module Calculator
     def totals
       total_cost = 0
       total_tax = 0
-      receipt_data = []
 
-      @products.each do |item|
+      receipt_data = @products.map do |item|
         product = item[:product]
         quantity = item[:quantity]
-
 
         item_tax = (tax_calculator.calculate(product) * quantity)
         item_total = ((product.base_price + tax_calculator.calculate(product)) * quantity)
@@ -32,8 +31,14 @@ module Calculator
         total_cost += item_total
         total_tax += item_tax
 
-        receipt_data << { quantity: quantity, name: product.name, total: item_total }
+        { quantity: quantity, name: product.name, total: item_total }
       end
+
+      # In Ruby as in other languages, when doing floating-point arithmetic, you could end up with things like
+      # 1.4 + 1.2 != 2.6, but 1.4 + 1.2 = 2.59999
+      # Due that, we will round the numbers after second decimal.
+      total_tax = total_tax.round(2)
+      total_cost = total_cost.round(2)
 
       { receipt_data: receipt_data, total_tax: total_tax, total_cost: total_cost }
     end

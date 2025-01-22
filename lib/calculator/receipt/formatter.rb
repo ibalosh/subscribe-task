@@ -1,5 +1,7 @@
 module Calculator
   class Receipt
+    # To show receipt in human readable way, in our case console,
+    # we will use this formatter, which will format the string for the console output.
     class Formatter
       def self.format(receipt)
         totals = receipt.totals

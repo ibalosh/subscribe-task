@@ -1,19 +1,22 @@
 require_relative 'product.rb'
 require_relative 'tax_calculator'
-require_relative 'product/type_validator'
 require_relative 'receipt'
 require_relative 'receipt/formatter'
 require_relative 'input_parser'
 
 module Calculator
+  # Sole purpose of this handle class is to handle input of products by user, and printing out the result.
   class InputHandler
     def initialize(receipt)
       @receipt = receipt
     end
 
     def start
-      puts "Enter items in the format: '<quantity> <name> at <price> <type> [imported]'"
-      puts "Type 'done' when finished."
+      puts "Enter items in the format: '<quantity> <name> at <price> [product type] [imported]'\n\n"
+      puts "Product type and imported word are optional."
+      puts "Product can be: book, food, medical, etc."
+      puts "Example: 1 banana at 10.29 food imported"
+      puts "\n\nType 'done' when finished."
 
       loop do
         print "Enter item (or write 'done' to finish): "

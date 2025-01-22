@@ -1,9 +1,9 @@
 require_relative 'calculator/receipt'
 require_relative 'calculator/receipt/formatter'
 require_relative 'calculator/product'
-require_relative 'calculator/product/type_validator'
 
-# Example usage of the calculator with predefined products
+# In this file, you can see some of the examples for the calculator in action, for different product types, prices taxes.
+# Couple of example usages of the calculator with predefined products, can be seen below.
 
 # EXAMPLE 1
 receipt = Calculator::Receipt.new(Calculator::TaxCalculator.new)

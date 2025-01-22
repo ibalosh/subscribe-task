@@ -12,7 +12,6 @@ RSpec.describe Calculator::Receipt do
   end
 
   it "calculates totals for the receipt" do
-    skip
     product1 = Calculator::Product.new(name: "book", base_price: 12.49, type: :book, imported: false)
     product2 = Calculator::Product.new(name: "music CD", base_price: 14.99, type: :other, imported: false)
     receipt.add_product(product1, quantity: 1)
@@ -58,7 +57,7 @@ RSpec.describe Calculator::Receipt do
     expect(totals[:total_tax]).to eq(7.65)
   end
 
-  it "calculates totals for the receipt - requested example 2" do
+  it "calculates totals for the receipt - requested example 3" do
     receipt.add_product(
       Calculator::Product.new(name: "perfume", base_price: 27.99, type: :other, imported: true), quantity: 1
     )

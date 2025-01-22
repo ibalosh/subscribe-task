@@ -2,7 +2,7 @@ RSpec.describe Calculator::Receipt::Formatter do
   it "formats a receipt into a string" do
     receipt = Calculator::Receipt.new(Calculator::TaxCalculator.new)
     product1 = Calculator::Product.new(name: "BOOK NAME", base_price: 12.49, type: :book, imported: false)
-    product2 = Calculator::Product.new(name: "MUSIC CD", base_price: 14.99, type: :other, imported: false)
+    product2 = Calculator::Product.new(name: "MUSIC CD", base_price: 14.99, imported: false)
     receipt.add_product(product1, quantity: 1)
     receipt.add_product(product2, quantity: 1)
 
