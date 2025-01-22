@@ -1,3 +1,5 @@
+require_relative 'product_type_validator'
+
 module Calculator
   class Product
     attr_reader :name, :base_price, :type, :imported
