@@ -1,4 +1,6 @@
 require 'pry'
+require 'simplecov'
+SimpleCov.start
 
 files_to_load = Dir["#{File.dirname(__FILE__)}/../lib/**/*.rb"]
 files_to_load.each { |f| require f }
