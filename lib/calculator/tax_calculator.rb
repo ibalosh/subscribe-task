@@ -33,6 +33,8 @@ module Calculator
 
     private
 
+    # @param product [Product] The product to check
+    # @return [Boolean] Whether the product type is exempt from tax
     def exempt?(product)
       ProductTypeValidator.exempt?(product.type)
     end
