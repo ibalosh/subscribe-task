@@ -1,4 +1,3 @@
-require 'pry'
 require 'simplecov'
 
 # create code coverage report
